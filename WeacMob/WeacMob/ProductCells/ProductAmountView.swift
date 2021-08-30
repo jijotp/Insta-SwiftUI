@@ -28,6 +28,7 @@ struct ProductAmountView: View {
                 .font(Font.custom("SFProText-Regular", size: 14))
                 .lineLimit(2)
                 .foregroundColor(Color.init(hex: "#575959"))
+            ProductCartView()
         }.padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0))
     }
     

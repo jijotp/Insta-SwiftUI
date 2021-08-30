@@ -9,29 +9,14 @@ import SwiftUI
 
 struct ProductCartView: View {
     
-    @State var isAddButtonShows = false
+    @State var isAddButtonShows = true
     @State var countChanged = false
     @State var count = 1
     
     var body: some View {
         GeometryReader { metrics in
             if isAddButtonShows {
-                HStack{
-                    Spacer()
-                    VStack {
-                        Button(action: {
-                            isAddButtonShows = false
-                        }) {
-                            Text("ADD")
-                                .font(Font.custom("SFProText-SemiBold", size: 16))
-                                .foregroundColor(Color.white)
-                        }
-                    }.frame(width: metrics.size.width - 46, height: 31, alignment: .center)
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                    .background(Color.init(hex: "#199b3b"))
-                    .cornerRadius(4)
-                    Spacer()
-                }
+                AddButton()
             } else {
                 HStack{
                     Spacer()

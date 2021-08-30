@@ -12,6 +12,7 @@ struct ProductImageView: View {
     
     var body: some View {
         GeometryReader { metrics in
+            
 //            HStack {
 //            ZStack() {
 //                Image.init("sampleImage")
@@ -27,7 +28,7 @@ struct ProductImageView: View {
 //            }.frame(width: metrics.size.width - 16, height: 105,alignment: .topLeading)
             Image.init("sampleImage")
                 .resizable()
-                .frame(width: metrics.size.width - 16, height: 90)
+                .frame(width: (UIScreen.main.bounds.width / 3 ) - 16, height: 90)
                 .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
         }
     }
