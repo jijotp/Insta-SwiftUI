@@ -31,6 +31,7 @@ struct StoreListView: View {
                     .font(Font.custom("SFProText-Regular", size: 13))
                     .frame(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .background(Color.clear)
+                Divider()
             }
             Spacer(minLength: 20)
         }.padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 0))
@@ -38,7 +39,8 @@ struct StoreListView: View {
 }
 
 struct StoreListView_Previews: PreviewProvider {
+ 
     static var previews: some View {
-        StoreListView()
+        StoreListView(store: Store())
     }
 }

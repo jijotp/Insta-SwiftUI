@@ -18,13 +18,13 @@ struct TabbarVC: View {
             }.tag(0)
             
             
-            SecondVC()
+            SampleView()
             .tabItem {
                 Image.init("map")
                 TabbText(text: "Map")
             }.tag(1)
             
-            SecondVC()
+            SampleView()
             .tabItem {
                 Image.init("group")
                 TabbText(text: "Loyalty")
@@ -36,7 +36,7 @@ struct TabbarVC: View {
                 TabbText(text: "Offers")
             }.tag(3)
             
-            SecondVC()
+            SampleView()
             .tabItem {
                 Image.init("newspaper")
                 TabbText(text: "Events")
@@ -44,6 +44,7 @@ struct TabbarVC: View {
         }
         .accentColor(Color.gray)
     }
+    
 }
 
 struct TabbarVC_Previews: PreviewProvider {

@@ -31,17 +31,15 @@ struct HomeVC: View {
         NavigationView {
             VStack {
                 if self.active {
-                    List {
+                    ScrollView(.vertical, showsIndicators: false)  {
                         TitleImageView()
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                             .onTapGesture {
                                 self.showDetailView = true
                             }
                         OfferCell(offers: model.offersModel)
-                            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                        Divider().padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                         Promotioncell(promotions: model.promotionalModel)
-                            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                     }
                     .background(Color.white)
 //                    NavigationLink(destination:  SecondVC(), isActive: self.$showDetailView) {

@@ -14,17 +14,16 @@ struct StoresView: View {
     
     var body: some View {
         VStack (alignment: .leading){
-        Spacer(minLength: 22)
-        if self.active {
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack(alignment: .leading) {
-                ForEach(model.stores, id: \.self) { item in
-                    StoreListView(store: item)
-                }
-                .padding(0)
-         }
-        }.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-            Spacer(minLength: 40)
+            Spacer(minLength: 22)
+            if self.active {
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(alignment: .leading) {
+                        ForEach(model.stores, id: \.self) { item in
+                            StoreListView(store: item)
+                        }
+                        .padding(0)
+                    }
+                }.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             }
         }.onAppear(perform: {
             UITableView.appearance().separatorStyle = .none
