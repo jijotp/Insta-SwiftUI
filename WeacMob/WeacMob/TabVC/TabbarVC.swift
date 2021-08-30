@@ -18,7 +18,7 @@ struct TabbarVC: View {
             }.tag(0)
             
             
-            SampleView()
+            ProductsView()
             .tabItem {
                 Image.init("map")
                 TabbText(text: "Map")

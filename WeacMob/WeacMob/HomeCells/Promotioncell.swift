@@ -20,14 +20,14 @@ struct Promotioncell: View {
                     .padding(0)
                     .foregroundColor(.black)
                     .lineLimit(1)
-                    .font(Font.custom("SFProText-Semibold", size: 17))
+                    .font(Font.custom("SFProDisplay-Semibold", size: 17))
                     .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 0))
                 Spacer()
                 Text("See All >")
                     .padding(0)
                     .foregroundColor(Color(hex: "#666666"))
                     .lineLimit(1)
-                    .font(Font.custom("SFProText-Medium", size: 11))
+                    .font(Font.custom("SFProDisplay-Medium", size: 11))
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 16))
                     .onTapGesture {
                         self.showDetailView = true

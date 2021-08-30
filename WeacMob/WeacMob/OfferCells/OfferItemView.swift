@@ -19,7 +19,7 @@ struct OfferItemView: View {
                 .foregroundColor(.black)
                 .background(Color.random)
                 .lineLimit(1)
-                .font(Font.custom("SFProText-Semibold", size: 13))
+                .font(Font.custom("SFProDisplay-Semibold", size: 13))
                 .frame(height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .cornerRadius(20)
 //               NavigationLink(destination: DetailView(promotion: self.promotion), isActive: self.$showDetailView) {

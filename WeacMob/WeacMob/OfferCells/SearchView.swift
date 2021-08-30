@@ -21,7 +21,7 @@ struct SearchView: View {
             Text("Stores")
                 .foregroundColor(.black)
                 .lineLimit(1)
-                .font(Font.custom("SFProText-Semibold", size: 22))
+                .font(Font.custom("SFProDisplay-Semibold", size: 22))
                 .frame(alignment: .leading)
             //               NavigationLink(destination: DetailView(promotion: self.promotion), isActive: self.$showDetailView) {
             //                EmptyView()

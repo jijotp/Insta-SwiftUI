@@ -16,10 +16,10 @@ struct TitleImageView: View {
                 .aspectRatio(contentMode: ContentMode.fit)
             VStack(alignment: .leading) {
             Text("Lorem ipsum")
-                .font(Font.custom("SFProText-Semibold", size: 25))
+                .font(Font.custom("SFProDisplay-Semibold", size: 25))
                 .foregroundColor(Color.white)
                 Text("Lorem ipsum dolor sit amet consectetur")
-                    .font(Font.custom("SFProText-Medium", size: 9))
+                    .font(Font.custom("SFProDisplay-Medium", size: 9))
                     .foregroundColor(Color.white)
             }.padding(EdgeInsets(top: 0, leading: 20, bottom: 23, trailing: 0))
         }

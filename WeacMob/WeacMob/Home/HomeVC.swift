@@ -38,6 +38,7 @@ struct HomeVC: View {
                                 self.showDetailView = true
                             }
                         OfferCell(offers: model.offersModel)
+                        ProductsView()
                         Divider().padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                         Promotioncell(promotions: model.promotionalModel)
                     }
