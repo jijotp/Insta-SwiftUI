@@ -9,30 +9,28 @@ import SwiftUI
 
 struct ProductLIkeView: View {
     @State var isFavorite = false
+    
+    var values = ProductModel()
+    
     var body: some View {
         HStack {
-        ZStack {
-            Image.init("Path 30035")
-                .resizable()
-                .frame(width: 50,height: 17)
-            Text("12 % Off")
-                .font(Font.custom("SFProDisplay-Bold", size: 10))
-                .foregroundColor(Color.white)
-                .frame(alignment: .leading)
-            
-        }
-        //                .padding(0)
-        //                .foregroundColor(.black)
-        //                .lineLimit(1)
-        //                .font(Font.custom("SFProDisplay-Semibold", size: 17))
-        //                .padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 0))
-        
-        Spacer()
-        let image = isFavorite ?  "Path 29617" : "Group 8485"
-        Image.init(image).frame(width: 18,height: 15)
-            .onTapGesture {
-                isFavorite = !isFavorite
-            }.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 8))
+            if let offer = values.offer, offer != 0 {
+                ZStack {
+                    Image.init("Path 30035")
+                        .resizable()
+                        .frame(width: 55,height: 17)
+                    Text("\(offer) % Off")
+                        .font(Font.custom("SFProDisplay-Bold", size: 10))
+                        .foregroundColor(Color.white)
+                        .frame(alignment: .leading)
+                }
+            }
+            Spacer()
+            let image = isFavorite ?  "Path 29617" : "Group 8485"
+            Image.init(image).frame(width: 18,height: 15)
+                .onTapGesture {
+                    isFavorite = !isFavorite
+                }.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 8))
         }
     }
 }

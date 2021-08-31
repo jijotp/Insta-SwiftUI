@@ -16,7 +16,7 @@ struct SearchBar: View {
             Rectangle()
                 .foregroundColor(Color(hex: "#E5E5E5"))
             HStack {
-                Image(systemName: "magnifyingglass")
+                Image(systemName: "magnifyingglass").padding(.leading, 8)
                 TextField("Search ..", text: $searchText) { startedEditing in
                     if startedEditing {
                         withAnimation {
@@ -29,12 +29,13 @@ struct SearchBar: View {
                     }
                 }
             }
-            .foregroundColor(.gray)
-            .padding(.leading, 13)
+            .foregroundColor(Color.init(hex: "#FAFAFA"))
+            .padding(0)
+           
         }
-        .frame(height: 40)
-        .cornerRadius(13)
-        .padding(.leading, -13)
-        .padding()
+        .frame(height: 47)
+        .padding(0)
+        .border(Color.init(hex: "#E5E5E5"), width: 1)
+        .cornerRadius(4)
     }
  }

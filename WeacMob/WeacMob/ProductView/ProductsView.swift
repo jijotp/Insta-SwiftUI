@@ -8,18 +8,65 @@
 import SwiftUI
 
 struct ProductsView: View {
+    
+    var model = HomeViewModel()
+    
+    @State private var active: Bool = false
+    
     var body: some View {
-        VStack (alignment: .leading) {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack() {
-                ForEach((1...10).reversed(), id: \.self) { item in
-                    ProductView()
+        NavigationView {
+            VStack {
+                if self.active {
+                    VStack (alignment: .leading) {
+                        SearchItemView()
+                        ScrollView(.vertical, showsIndicators: false) {
+                            VStack() {
+                                ForEach(model.homeData, id: \.self) { item in
+                                    if item.type == "banners" {
+                                        BannerList(homeData: item)
+                                    }
+                                        
+                                    if item.type == "category" {
+                                        StoryList(homeData: item)
+                                    }
+                                        
+                                    if item.type == "products" {
+                                        ProductListView(homeData: item)
+                                    }
+                                }
+                                 
+                            }.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                        }
+                    }
+                } else {
+                    HStack {
+                        LoadingView(isShowing: .constant(!self.active))
+                    }
                 }
-                .padding(0)
+                
             }
-        }.padding(EdgeInsets(top: 22, leading: 0, bottom: 41, trailing: 0))
-        Spacer()
+            .navigationBarTitle("", displayMode: .inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar{
+                ToolbarItem(placement: .principal) {
+                    Image.init("WACMOB")
+                }
+            }
+            .listStyle(PlainListStyle())
+            .preferredColorScheme(.light)
         }
+        .onAppear(perform: {
+            UITableView.appearance().separatorStyle = .none
+            self.getHomeData()
+        })
+    }
+    
+    func getHomeData() {
+        model.getProductdata(handler: { item in
+            if item {
+                self.active = true
+            }
+        })
     }
 }
 

@@ -84,6 +84,7 @@ struct RemoteImageView: View {
     }
     
     var body: some View {
+        
         GeometryReader { metrics in
             Image(uiImage: imageUtils.image ??  UIImage())
                 .resizable()

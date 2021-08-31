@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductImageView: View {
     
-    
+    var values = ProductModel()
     var body: some View {
         GeometryReader { metrics in
             

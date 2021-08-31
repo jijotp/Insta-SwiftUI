@@ -177,3 +177,65 @@ class Store: NSObject, Mappable {
         image <- map["id"]
     }
 }
+
+class ProductModel: NSObject, Mappable {
+    var id: Int?
+    var name: String?
+    var image: String = ""
+    var actual_price: String?
+    var is_express: Bool?
+    var offer_price: String?
+    var offer: Int?
+    var image_url: String?
+    var banner_url: String?
+    
+    required convenience init?(map: Map) {
+        self.init()
+    }
+    
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        name <- map["name"]
+        image <- map["image"]
+        is_express <- map["is_express"]
+        actual_price <- map["actual_price"]
+        offer <- map["offer"]
+        offer_price <- map["offer_price"]
+        image_url <- map["image_url"]
+        banner_url <- map["banner_url"]
+    }
+}
+
+class HomeDataModel: NSObject, Mappable {
+    var type: String = ""
+    var values: [ProductModel]?
+  
+    
+    required convenience init?(map: Map) {
+        self.init()
+    }
+    
+    
+    func mapping(map: Map) {
+        type <- map["type"]
+        values <- map["values"]
+       
+    }
+}
+
+class CMSData: NSObject, Mappable {
+    var status: Bool?
+    var homeData: [HomeDataModel]?
+  
+    
+    required convenience init?(map: Map) {
+        self.init()
+    }
+    
+    
+    func mapping(map: Map) {
+        status <- map["status"]
+        homeData <- map["homeData"]
+    }
+}

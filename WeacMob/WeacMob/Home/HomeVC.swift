@@ -38,7 +38,6 @@ struct HomeVC: View {
                                 self.showDetailView = true
                             }
                         OfferCell(offers: model.offersModel)
-                        ProductsView()
                         Divider().padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                         Promotioncell(promotions: model.promotionalModel)
                     }
@@ -65,6 +64,7 @@ struct HomeVC: View {
         }.onAppear(perform: {
             UITableView.appearance().separatorStyle = .none
             self.getHomeData()
+            customeFOnts () 
         })
         
     }
@@ -76,6 +76,13 @@ struct HomeVC: View {
             }
         })
     }
+    func customeFOnts () {
+        for family in UIFont.familyNames.sorted() {
+            let names = UIFont.fontNames(forFamilyName: family)
+            print("Family: \(family) Font names: \(names)")
+        }
+    }
+    
 }
 
 struct HomeVC_Previews: PreviewProvider {

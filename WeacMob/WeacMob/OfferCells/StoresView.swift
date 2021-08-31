@@ -9,6 +9,8 @@ import SwiftUI
 
 struct StoresView: View {
     
+    @EnvironmentObject var stores: StoreDetails
+    
     var model = StoreViewModel()
     @State private var active: Bool = false
     
@@ -19,7 +21,9 @@ struct StoresView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(alignment: .leading) {
                         ForEach(model.stores, id: \.self) { item in
-                            StoreListView(store: item)
+                            StoreListView(store: item).onTapGesture {
+                                stores.add(item: item)
+                            }
                         }
                         .padding(0)
                     }

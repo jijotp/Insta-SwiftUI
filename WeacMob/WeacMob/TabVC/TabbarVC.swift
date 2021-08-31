@@ -9,6 +9,9 @@ import SwiftUI
 
 struct TabbarVC: View {
     @State private var selectedView = 0
+    
+    @EnvironmentObject var stores: StoreDetails
+    
     var body: some View {
         TabView(selection: $selectedView) {
             HomeVC()
@@ -24,10 +27,10 @@ struct TabbarVC: View {
                 TabbText(text: "Map")
             }.tag(1)
             
-            SampleView()
+            SignUpVC()
             .tabItem {
                 Image.init("group")
-                TabbText(text: "Loyalty")
+                TabbText(text: "SignUp")
             }.tag(2)
             
             SecondVC()
@@ -36,10 +39,10 @@ struct TabbarVC: View {
                 TabbText(text: "Offers")
             }.tag(3)
             
-            SampleView()
+            Members()
             .tabItem {
                 Image.init("newspaper")
-                TabbText(text: "Events")
+                TabbText(text: "Oservable")
             }.tag(4)
         }
         .accentColor(Color.gray)
