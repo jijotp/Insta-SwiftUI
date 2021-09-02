@@ -60,7 +60,7 @@
 		<string>SF-Pro-Display-Black.otf</string>
 		<string>SF-Pro-Display-ThinItalic.otf</string>
 		<string>SF-Pro-Display-BoldItalic.otf</string>
-        <string>SF-Pro-Display-Bold.ttf</string>
+		<string>SF-Pro-Display-Bold.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

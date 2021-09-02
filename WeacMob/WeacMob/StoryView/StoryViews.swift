@@ -25,7 +25,7 @@ struct StoryViews: View {
                 .padding(0)
                 .foregroundColor(.black)
                 .lineLimit(1)
-                .font(Font.custom("SFProText-Regular", size: 10))
+                .font(Font.custom("SFProText-Medium", size: 13))
               
                 .frame(width: 67, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .background(Color.clear)

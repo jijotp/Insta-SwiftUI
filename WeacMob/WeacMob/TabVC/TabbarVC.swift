@@ -10,18 +10,18 @@ import SwiftUI
 struct TabbarVC: View {
     @State private var selectedView = 0
     
-    @EnvironmentObject var stores: StoreDetails
-    
     var body: some View {
         TabView(selection: $selectedView) {
-            HomeVC()
+           HomeVC()
+        // GameView(game: Game(name: "Zelda: Breath of the Wild", developer: "Nintendo EPD", cover: Image("Mask Group 26"), progress: 0.75))
+           // Checkmark()
             .tabItem {
                 Image.init("home")
                 TabbText(text: "Home")
             }.tag(0)
             
             
-            ProductsView()
+            MapView()
             .tabItem {
                 Image.init("map")
                 TabbText(text: "Map")
@@ -33,10 +33,10 @@ struct TabbarVC: View {
                 TabbText(text: "SignUp")
             }.tag(2)
             
-            SecondVC()
+            ProductsView()
             .tabItem {
                 Image.init("percent")
-                TabbText(text: "Offers")
+                TabbText(text: "Products")
             }.tag(3)
             
             Members()

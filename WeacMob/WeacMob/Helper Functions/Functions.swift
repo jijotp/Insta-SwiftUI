@@ -54,3 +54,50 @@ struct StartView: View {
         }
     }
 }
+
+struct ExtendedDivider: View {
+    var height: CGFloat = 5
+    var width: CGFloat = 100
+    var direction: Axis.Set = .horizontal
+    var fillColor: Color = .blue
+    var body: some View {
+        ZStack {
+            Rectangle()
+                .fill(fillColor)
+                .applyIf(direction == .vertical) {
+                    $0.frame(width: width,height: height)
+                    .edgesIgnoringSafeArea(.vertical)
+                } else: {
+                    $0.frame(width: width,height: height)
+                    .edgesIgnoringSafeArea(.horizontal)
+                }
+        }
+    }
+}
+
+struct buttonWithBackground: View {
+    
+    var btnText: String
+    
+    var height: CGFloat = 50
+    var width: CGFloat = 140
+    var fillColor: Color = .blue
+    
+    var body: some View {
+        
+        HStack {
+//            Spacer()
+            Text(btnText)
+                .font(Font.custom("SFProDisplay-Bold", size: 18))
+                .foregroundColor(.white)
+                .padding(0)
+                .frame(width: width, height: height)
+                .background(fillColor)
+                .clipped()
+                .cornerRadius(5.0)
+                .shadow(color: fillColor, radius: 5, x: 0, y: 5)
+            
+//            Spacer()
+        }
+    }
+}

@@ -17,32 +17,25 @@ struct SecondVC: View {
     var model = HomeViewModel()
     
     var body: some View {
-        NavigationView {
-            VStack {
-                if self.active {
-                    OfferItemsCell(offers: model.offersModel)
-                    SearchView()
-                    StoresView()
-                } else {
-                    HStack {
-                        LoadingView(isShowing: .constant(!self.active))
-                    }
-                }
-            }.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-            .navigationBarTitle("", displayMode: .inline)
-            .navigationBarBackButtonHidden(true)
-            .toolbar{
-                ToolbarItem(placement: .principal) {
-                    Image.init("WACMOB")
+        
+        VStack {
+            if self.active {
+                OfferItemsCell(offers: model.offersModel)
+                SearchView()
+                StoresView()
+            } else {
+                HStack {
+                    LoadingView(isShowing: .constant(!self.active))
                 }
             }
-            .listStyle(PlainListStyle())
-            .preferredColorScheme(.light)
-            
         }.onAppear(perform: {
             UITableView.appearance().separatorStyle = .none
             self.getHomeData()
         })
+        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarBackButtonHidden(false)
+        .listStyle(PlainListStyle())
     }
     
     func getHomeData() {

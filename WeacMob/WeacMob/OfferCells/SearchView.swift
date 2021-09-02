@@ -28,7 +28,7 @@ struct SearchView: View {
             //            }
             SearchBar(searchText: searchText, searching: $searching)
            // Spacer(minLength: 12)
-        }.padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 0))
+        }.padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 14))
     }
 }
 

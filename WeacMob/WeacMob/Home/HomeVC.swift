@@ -42,9 +42,9 @@ struct HomeVC: View {
                         Promotioncell(promotions: model.promotionalModel)
                     }
                     .background(Color.white)
-//                    NavigationLink(destination:  SecondVC(), isActive: self.$showDetailView) {
-//                        EmptyView()
-//                    }
+                    NavigationLink(destination:  SecondVC(), isActive: self.$showDetailView) {
+                        EmptyView()
+                    }
                 } else {
                     HStack {
                         LoadingView(isShowing: .constant(!self.active))
@@ -53,6 +53,7 @@ struct HomeVC: View {
             }.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarBackButtonHidden(true)
+            .navigationBarItems(trailing: MessageButtonView())
             .toolbar{
                 ToolbarItem(placement: .principal) {
                     Image.init("WACMOB")

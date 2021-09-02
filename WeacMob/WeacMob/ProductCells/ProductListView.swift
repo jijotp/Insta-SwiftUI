@@ -12,14 +12,15 @@ struct ProductListView: View {
     
     var body: some View {
         VStack (alignment: .leading) {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 8) {
-                ForEach(homeData.values ?? [], id: \.self) { item in
-                    ProductView(values: item)
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 0) {
+                    ForEach(homeData.values ?? [], id: \.self) { item in
+                        ProductView(values: item)
+                            .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0))
+                    }
+                    .padding(0)
                 }
-                .padding(0)
-            }
-        }.padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
+            }.padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
         }
     }
 }

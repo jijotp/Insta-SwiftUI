@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct StoreListView: View {
+    
+    @EnvironmentObject var stores: StoreDetails
+    
     var store = Store()
     var body: some View {
         HStack {
@@ -15,6 +18,7 @@ struct StoreListView: View {
                 .frame(width: 62, height: 62)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                 .background(Color.clear)
+            ZStack {
             VStack(alignment: .leading) {
             Text(store.name)
                 .padding(0)
@@ -32,6 +36,14 @@ struct StoreListView: View {
                     .frame(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .background(Color.clear)
                 Divider()
+            }
+                Button( action: {
+                    print("tapped")
+                    stores.model = true
+                },
+                label: {
+                    Text("ADD")
+                })
             }
             Spacer(minLength: 20)
         }.padding(EdgeInsets(top: 0, leading: 14, bottom: 0, trailing: 0))
