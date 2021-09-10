@@ -13,7 +13,7 @@ struct BannerList: View {
     var body: some View {
         VStack (alignment: .leading) {
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 0) {
+                LazyHStack(spacing: 0) {
                     ForEach(homeData.values ?? [], id: \.self) { item in
                         BannerView(values: item)
                     }

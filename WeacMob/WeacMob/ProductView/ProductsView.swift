@@ -20,7 +20,7 @@ struct ProductsView: View {
                     VStack (alignment: .leading) {
                         SearchItemView()
                         ScrollView(.vertical, showsIndicators: false) {
-                            VStack() {
+                            LazyVStack() {
                                 ForEach(model.homeData, id: \.self) { item in
                                     if item.type == "banners" {
                                         BannerList(homeData: item)

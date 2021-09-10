@@ -17,7 +17,7 @@ struct StoresView: View {
             Spacer(minLength: 22)
             if self.active {
                 ScrollView(.vertical, showsIndicators: false) {
-                    VStack(alignment: .leading) {
+                    LazyVStack(alignment: .leading) {
                         ForEach(model.stores, id: \.self) { item in
                             StoreListView(store: item).onTapGesture {
                                 

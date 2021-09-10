@@ -14,9 +14,13 @@ struct PromotionCollectionViewCell: View {
     var  promotion = PromotionDataModel()
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        let width = Int(UIScreen.main.bounds.width * 0.6)
+        let height = Int(UIScreen.main.bounds.height * 0.21)
+        
+        debugPrint("https://picsum.photos/\(width)/\(height)")
+        return VStack(alignment: .leading, spacing: 0) {
             
-            RemoteImageView(withURL: "https://picsum.photos/200/200")
+            RemoteImageView(withURL: "https://picsum.photos/\(width)/\(height)")
                 .frame(width: UIScreen.main.bounds.width * 0.69, height: UIScreen.main.bounds.height * 0.21)
                 .onTapGesture {
                     self.showDetailView = true

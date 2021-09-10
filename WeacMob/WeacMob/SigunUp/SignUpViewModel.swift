@@ -19,3 +19,17 @@ class SignUpViewModel: ObservableObject {
     @Published var passwordMessage = ""
 
 }
+
+class sampleModel: ObservableObject {
+    
+    // Input
+    // Input
+    @Published var userName = ""
+    @Published var password = ""
+    @Published var confirmPassword = ""
+    
+    // Output
+    @Published var isValid = false
+    @Published var usernameMessage = ""
+    @Published var passwordMessage = ""
+}

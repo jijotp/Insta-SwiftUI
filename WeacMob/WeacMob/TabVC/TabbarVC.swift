@@ -44,6 +44,12 @@ struct TabbarVC: View {
                 Image.init("newspaper")
                 TabbText(text: "Oservable")
             }.tag(4)
+            
+            SwiftGridView()
+            .tabItem {
+                Image.init("percent")
+                TabbText(text: "Swift Grid")
+            }.tag(5)
         }
         .accentColor(Color.gray)
     }

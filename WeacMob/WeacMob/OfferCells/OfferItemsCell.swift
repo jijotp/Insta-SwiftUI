@@ -14,7 +14,7 @@ struct OfferItemsCell: View {
     var body: some View {
         VStack (alignment: .leading){
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
+            LazyHStack {
                 ForEach(offers, id: \.self) { item in
                     OfferItemView(offer: item)
                 }

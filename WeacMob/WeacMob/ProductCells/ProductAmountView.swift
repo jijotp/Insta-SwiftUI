@@ -33,12 +33,19 @@ struct ProductAmountView: View {
                 .foregroundColor(Color.black)
                 .frame(alignment: .leading)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 2))
+            VStack {
             Text(values.name ?? "")
                 .font(Font.custom("SFProDisplay-Regular", size: 12))
-                .lineLimit(2)
                 .foregroundColor(Color.init(hex: "#575959"))
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 2))
-            ProductCartView()
+                .frame(height: 34)
+                .lineLimit(2)
+            }
+            VStack(alignment: .center) {
+            Spacer().frame(maxWidth: .infinity)
+                AddButton()
+                Spacer().frame(maxWidth: .infinity)
+            }.background(Color.white)
         }.padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0))
     }
     
@@ -54,6 +61,6 @@ struct ProductAmountView: View {
 
 struct ProductAmountView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductAmountView()
+        ProductAmountView(values: ProductModel())
     }
 }

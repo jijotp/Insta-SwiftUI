@@ -20,9 +20,24 @@ struct SecondVC: View {
         
         VStack {
             if self.active {
-                OfferItemsCell(offers: model.offersModel)
-                SearchView()
-                StoresView()
+                ScrollView(.vertical, showsIndicators: false)  {
+                    LazyVStack() {
+                        ForEach((1...3), id: \.self) {
+                            switch $0 {
+                            case 1:
+                                OfferItemsCell(offers: model.offersModel)
+                            case 2:
+                                SearchView()
+                            case 3:
+                                StoresView()
+                            default:
+                               EmptyView()
+                            }
+                            
+                        }
+                    }
+                    
+                }
             } else {
                 HStack {
                     LoadingView(isShowing: .constant(!self.active))

@@ -14,6 +14,8 @@ class HomeViewModel {
     
     var homeData = [HomeDataModel]()
     
+    var productModel = [ProductModel]()
+    
     func getMockdata(handler: @escaping (Bool)->Void) {
         WebserviceRequest.shared.getResoponce(parameter: nil) { (success, responseObject, error)  in
             if success, let object = responseObject as? DataResponce {
@@ -31,6 +33,8 @@ class HomeViewModel {
             if success, let object = responseObject as? CMSData {
                 if object.status ?? false {
                     self.homeData = object.homeData ?? []
+                    let item = self.homeData.filter({ $0.type == "products" }).first?.values ?? []
+                    self.productModel = item
                     handler(true)
                 } else {
                     handler(false)

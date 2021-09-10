@@ -25,6 +25,7 @@ struct OfferCollectionViewCell: View {
                             ))
                 .frame(width: 67, height: 67)
                 .onTapGesture {
+                    self.offer.offer_category = "Jhone"
                     self.showDetailView = true
                 }.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                 .background(Color.clear)

@@ -20,8 +20,7 @@ struct ProductView: View {
                 .frame(width: (UIScreen.main.bounds.width / 3 ) - 16, height: 90)
                 .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
             ProductAmountView(values: values)
-            // ProductCartView()
-            Spacer()
+        
             
         }.frame(width: UIScreen.main.bounds.width / 3, height: 284, alignment: .topLeading)
         .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
@@ -34,3 +33,4 @@ struct ProductView_Previews: PreviewProvider {
         ProductView()
     }
 }
+

@@ -36,27 +36,24 @@ struct MapView: View {
         NavigationView {
             VStack(spacing: 0) {
                 HStack(alignment: .center) {
-                    VStack(alignment: .leading, spacing: 0){
+                    Button(action: {
+                        self.homeDeliveryActive = true
+                    }) {
                         let fillcolor: Color = homeDeliveryActive ? Color.init("BandGreen") : .black
                         Text("Home Delivery")
-                            .frame(width: UIScreen.main.bounds.width / 2)
                             .font(Font.custom("SFProDisplay-Semibold", size: 15))
                             .foregroundColor(fillcolor)
-                    }.onTapGesture {
-                        self.homeDeliveryActive = true
-                    }
+                    }.frame(width: UIScreen.main.bounds.width / 2,height: 64)
                     Divider()
-                    VStack(alignment: .leading, spacing: 0){
+                    Button(action: {
+                        self.homeDeliveryActive = false
+                    }) {
                         let fillcolor: Color = homeDeliveryActive ? .black : Color.init("BandGreen")
                         Text("Store Pickup")
-                            .frame(width: UIScreen.main.bounds.width / 2)
                             .font(Font.custom("SFProDisplay-Semibold", size: 15))
                             .foregroundColor(fillcolor)
-                    }.onTapGesture {
-                        self.homeDeliveryActive = false
-                    }
+                    }.frame(width: UIScreen.main.bounds.width / 2,height: 64)
                 }.frame(height: 64)
-                .background(Color.red)
                 HStack(spacing: 0) {
                     VStack(alignment: .leading, spacing: 0){
                         EmptyView()
@@ -71,52 +68,52 @@ struct MapView: View {
                 }.frame(height: 2)
                 .background(Color.white)
                 ZStack(alignment: .bottom) {
-                ZStack() {
-                    Map(coordinateRegion: $region,
-                        interactionModes: .all,
-                        showsUserLocation: true,
-                        annotationItems: annotationItems) { item in
-                        MapMarker(coordinate: item.coordinate)
-                    }.onChange(of: region.center.latitude){ newLatitude in
-                        debugPrint(newLatitude)
-                        latitude = String(newLatitude)
-                    }
-                    
-                    .onTapGesture {
-                        //  self.stores.model = true
-                    }
-                    Image.init("ic-location-marker")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 20, height: 12, alignment: .center)
-                        .offset(x: -5, y: -(UIScreen.main.bounds.height / 2))
-                }
-                VStack(alignment: .center){
-                    HStack (alignment: .firstTextBaseline, spacing: 0){
-                        Image(systemName: "magnifyingglass")
-                            .padding(.leading, 8)
-                            .padding(.trailing, 8)
-                            .foregroundColor(Color.init(hex: "#727272"))
-                        Text("Karama, New Dubai Mall")
-                            .foregroundColor(Color.init(hex: "#727272"))
-                            .font(Font.custom("SFProText-Medium", size: 16))
-                        Spacer().frame(width: 4)
-                        Text(latitude)
-                            .foregroundColor(Color.init(hex: "#727272"))
-                            .font(Font.custom("SFProText-Medium", size: 16))
-                        
-                    }.padding(EdgeInsets(top: 23, leading: 8, bottom: 23, trailing: 16))
-                    .foregroundColor(Color.init(hex: "#FAFAFA"))
-                    .padding(0)
-                    buttonWithBackground(btnText: "Conform", height: 48, width: UIScreen.main.bounds.width * 0.9, fillColor: Color.init("BandGreen"))
-                        .padding(.bottom,16).onTapGesture {
-                            print("jijo")
+                    ZStack() {
+                        Map(coordinateRegion: $region,
+                            interactionModes: .all,
+                            showsUserLocation: true,
+                            annotationItems: annotationItems) { item in
+                            MapMarker(coordinate: item.coordinate)
+                        }.onChange(of: region.center.latitude){ newLatitude in
+                            debugPrint(newLatitude)
+                            latitude = String(newLatitude)
                         }
-                    
-                }
-                .frame(width: UIScreen.main.bounds.width)
-                .background(Color.white)
-                .cornerRadius(20, corners: [.topLeft, .topRight])
+                        
+                        .onTapGesture {
+                            //  self.stores.model = true
+                        }
+                        Image.init("ic-location-marker")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 20, height: 12, alignment: .center)
+                            .offset(x: -5, y: -50)
+                    }
+                    VStack(alignment: .center){
+                        HStack (alignment: .firstTextBaseline, spacing: 0){
+                            Image(systemName: "magnifyingglass")
+                                .padding(.leading, 8)
+                                .padding(.trailing, 8)
+                                .foregroundColor(Color.init(hex: "#727272"))
+                            Text("Karama, New Dubai Mall")
+                                .foregroundColor(Color.init(hex: "#727272"))
+                                .font(Font.custom("SFProText-Medium", size: 16))
+                            Spacer().frame(width: 4)
+                            Text(latitude)
+                                .foregroundColor(Color.init(hex: "#727272"))
+                                .font(Font.custom("SFProText-Medium", size: 16))
+                            
+                        }.padding(EdgeInsets(top: 23, leading: 8, bottom: 23, trailing: 16))
+                        .foregroundColor(Color.init(hex: "#FAFAFA"))
+                        .padding(0)
+                        buttonWithBackground(btnText: "Conform", height: 48, width: UIScreen.main.bounds.width * 0.9, fillColor: Color.init("BandGreen"))
+                            .padding(.bottom,16).onTapGesture {
+                                print("jijo")
+                            }
+                        
+                    }
+                    .frame(width: UIScreen.main.bounds.width)
+                    .background(Color.white)
+                    .cornerRadius(20, corners: [.topLeft, .topRight])
                 }.background(Color.white)
             }
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))

@@ -35,7 +35,7 @@ struct Promotioncell: View {
             }
             Spacer(minLength: 20)
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
+                LazyHStack {
                     ForEach(promotions, id: \.self) { item in
                         PromotionCollectionViewCell(promotion: item)
                     }

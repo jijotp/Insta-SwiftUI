@@ -12,7 +12,7 @@ struct StoryList: View {
     var body: some View {
         VStack (alignment: .leading) {
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 10) {
+                LazyHStack(spacing: 10) {
                     ForEach(homeData.values ?? [], id: \.self) { item in
                         StoryViews(values: item)
                     }

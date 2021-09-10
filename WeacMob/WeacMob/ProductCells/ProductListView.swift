@@ -13,7 +13,7 @@ struct ProductListView: View {
     var body: some View {
         VStack (alignment: .leading) {
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 0) {
+                LazyHStack(spacing: 0) {
                     ForEach(homeData.values ?? [], id: \.self) { item in
                         ProductView(values: item)
                             .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0))

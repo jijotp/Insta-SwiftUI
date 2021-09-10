@@ -88,8 +88,8 @@ struct RemoteImageView: View {
         GeometryReader { metrics in
             Image(uiImage: imageUtils.image ??  UIImage())
                 .resizable()
-                .frame(width: metrics.size.width, height: metrics.size.height,alignment: .leading)
                 .aspectRatio(contentMode: .fit)
+                .frame(width: metrics.size.width, height: metrics.size.height,alignment: .center)
                 .clipped()
         }
     }

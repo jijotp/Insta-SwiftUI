@@ -11,29 +11,21 @@ struct SignUpVC: View {
     
     @ObservedObject private var userViewModel = SignUpViewModel()
     var body: some View {
-        
-        Form {
+        NavigationView {
             
-            Section(footer: Text(userViewModel.usernameMessage).foregroundColor(.red)) {
-                TextField("Username", text: $userViewModel.userName)
-                    .autocapitalization(.none)
-            }
-            
-            Section(footer: Text(userViewModel.passwordMessage).foregroundColor(.red)) {
-                
-                SecureField("Password", text: $userViewModel.password)
-                SecureField("Confirm Password", text: $userViewModel.confirmPassword)
-            }
-            
-            Section {
-                
-                Button(action: {
-                  
-                }) {
-                    Text("Sign up")
+            ScrollView(.vertical, showsIndicators: false)  {
+                VStack(spacing: 8) {
+                    TextFeildSwift(placeHolder: "Name")
+                    TextFeildSwift(placeHolder: "Email")
+                    TextFeildSwift(placeHolder: "Password")
+                    TextFeildSwift(placeHolder: "Name")
+                    TextFeildSwift(placeHolder: "Email")
+                    TextFeildSwift(placeHolder: "Password")
+                    
                 }
-                .disabled(!userViewModel.isValid)
-            }
+            }.padding(EdgeInsets(top: 16, leading: 16, bottom: 0, trailing: 16))
+            .navigationBarTitle("Signup", displayMode: .large)
+            .navigationBarBackButtonHidden(true)
         }
     }
 }

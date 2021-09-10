@@ -30,6 +30,6 @@ class StoreViewModel {
         model3.image = "Mask Group 26"
         model3.name = "PVR cinemas"
         model3.address = "2nd floor"
-        self.stores = [model, model1, model2, model3] + [model, model1, model2, model3]
+        self.stores = [model, model1, model2, model3]
     }
 }

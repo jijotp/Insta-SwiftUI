@@ -22,7 +22,7 @@ struct HomeVC: View {
             // To remove only extra separators below the list:
             UITableView.appearance().tableFooterView = UIView()
         }
-
+        
         // To remove all separators including the actual ones:
         UITableView.appearance().separatorStyle = .none
     }
@@ -32,14 +32,27 @@ struct HomeVC: View {
             VStack {
                 if self.active {
                     ScrollView(.vertical, showsIndicators: false)  {
-                        TitleImageView()
-                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                            .onTapGesture {
-                                self.showDetailView = true
+
+                        LazyVStack() {
+                            ForEach((1...4), id: \.self) {
+                                switch $0 {
+                                case 1:
+                                    TitleImageView()
+                                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                                        .onTapGesture {
+                                            self.showDetailView = true
+                                        }
+                                case 2:
+                                    OfferCell(offers: model.offersModel)
+                                case 4:
+                                    Promotioncell(promotions: model.promotionalModel)
+                                default:
+                                    Divider().padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+                                }
+                                
                             }
-                        OfferCell(offers: model.offersModel)
-                        Divider().padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-                        Promotioncell(promotions: model.promotionalModel)
+                        }
+                        
                     }
                     .background(Color.white)
                     NavigationLink(destination:  SecondVC(), isActive: self.$showDetailView) {
